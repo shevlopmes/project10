@@ -52,7 +52,6 @@ vector<vector<int>> case_1d (vector<int> a,vector<int> b){
 }
 signed main()
 {
-    setlocale(LC_ALL, "Russian");
     int n,m;
     cin >> n >> m;
     vector<int> a(n);
@@ -66,13 +65,13 @@ signed main()
     vector<vector<int>> c = case_1d(a,b);
     int kod_oshibki = c[0][0];
     if(kod_oshibki == -3){
-        cout << "Êîä -3: ðàçìåðû íå ðàâíû";
+        cout << "Code -3: sizes are not equal";
     }
     else if(kod_oshibki==-2){
-        cout << "Êîä -2: ñóììû íå ðàâíû";
+        cout << "Code -2: sums are not equal";
     }
     else if(kod_oshibki == -1){
-        cout << "Êîä -1: âåêòîðû íå ðàâíû";
+        cout << "Code -1: vectors are not equal without any obvious reason";
     }
     else{
         for(int i = 0; i < n; ++i){

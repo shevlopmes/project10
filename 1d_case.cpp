@@ -66,13 +66,13 @@ signed main()
     vector<vector<int>> c = case_1d(a,b);
     int kod_oshibki = c[0][0];
     if(kod_oshibki == -3){
-        cout << "Êîä -3: ðàçìåðû íå ðàâíû";
+        cout << "ÃŠÃ®Ã¤ -3: Ã°Ã Ã§Ã¬Ã¥Ã°Ã» Ã­Ã¥ Ã°Ã Ã¢Ã­Ã»";
     }
     else if(kod_oshibki==-2){
-        cout << "Êîä -2: ñóììû íå ðàâíû";
+        cout << "ÃŠÃ®Ã¤ -2: Ã±Ã³Ã¬Ã¬Ã» Ã­Ã¥ Ã°Ã Ã¢Ã­Ã»";
     }
     else if(kod_oshibki == -1){
-        cout << "Êîä -1: âåêòîðû íå ðàâíû";
+        cout << "ÃŠÃ®Ã¤ -1: Ã¢Ã¥ÃªÃ²Ã®Ã°Ã» Ã­Ã¥ Ã°Ã Ã¢Ã­Ã»";
     }
     else{
         for(int i = 0; i < n; ++i){

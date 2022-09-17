@@ -21,7 +21,7 @@ template<typename T> bez_vyvoda vyvesti_vector(vector<T> a){
     }
     vyvod << '\n';
 }
-vector<vector<celyy>> case_1d (vector<celyy> a,vector<celyy> b){
+vector<vector<celyy>> odnomernyy_sluchay (vector<celyy> a,vector<celyy> b){
     esli(a.razmer()!=b.razmer()) vernut {{-3}};
     celyy summa1 = 0, summa2 = 0;
     neskolko_raz(celyy i = 0; i < a.razmer(); ++i){
@@ -65,7 +65,6 @@ vector<vector<celyy>> case_1d (vector<celyy> a,vector<celyy> b){
 }
 celyy main()
 {
-    setlocale(LC_ALL, "Russian");
     celyy n,m;
     vvod >> n >> m;
     vector<celyy> a(n);
@@ -76,16 +75,16 @@ celyy main()
     neskolko_raz(celyy i = 0; i < m; ++i){
         vvod >> b[i];
     }
-    vector<vector<celyy>> c = case_1d(a,b);
+    vector<vector<celyy>> c = odnomernyy_sluchay(a,b);
     celyy kod_oshibki = c[0][0];
     esli(kod_oshibki == -3){
-        vyvod << "Код -3: размеры не равны";
+        vyvod << "Kod -3: razmery ne ravny";
     }
     v_drugom_sluchae esli(kod_oshibki==-2){
-        vyvod << "Код -2: суммы не равны";
+        vyvod << "Kod -2: summy ne ravny";
     }
     v_drugom_sluchae esli(kod_oshibki == -1){
-        vyvod << "Код -1: векторы не равны";
+        vyvod << "Kod -1: vectory prosto ne ravny";
     }
     v_drugom_sluchae{
         neskolko_raz(celyy i = 0; i < n; ++i){

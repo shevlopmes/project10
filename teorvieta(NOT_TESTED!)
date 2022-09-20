@@ -174,22 +174,31 @@ vector<vector<int>> otseivanie_teoremoj_vieta (vector<vector<int>> u, vector<vec
     }
     return otvet;
 }
+//rebra v formate vectora iz 3 chisel: ver1, ver2, ves
+vector<vector<int>> rebra_v_tablicu (int kol_vo_ver, vector<vector<int>> rebra){
+    vector<vector<int>> otvet (kol_vo_ver, vector<int> (kol_vo_ver,0));
+    for(int i = 0; i < rebra.size(); ++i){
+        otvet[rebra[i][0]][rebra[i][1]]+=rebra[i][2];
+        otvet[rebra[i][1]][rebra[i][0]]+=rebra[i][2];
+    }
+    return otvet;
+}
 signed main()
 {
     int n,m;
     cin >> n >> m;
-    vector<vector<int>> a(n,vector<int>(n));
-    for(int i = 0; i < n; ++i){
-        for(int j = 0; j < n; ++j){
-            cin >> a[i][j];
-        }
+    int k1, k2;
+    cin >> k1 >> k2;
+    vector<vector<int>> rebraa(k1, vector<int>(3));
+    for(int i = 0; i < k1; ++i){
+        cin >> rebraa[i][0] >> rebraa[i][1] >> rebraa[i][2];
     }
-    vector<vector<int>> b(m,vector<int>(m));
-    for(int i = 0; i < m; ++i){
-        for(int j = 0; j < m; ++j){
-            cin >> b[i][j];
-        }
+    vector<vector<int>> rebrab(k2, vector<int>(3));
+    for(int i = 0; i < k2; ++i){
+        cin >> rebrab[i][0] >> rebrab[i][1] >> rebrab[i][2];
     }
+    vector<vector<int>> a = rebra_v_tablicu(n,rebraa);
+    vector<vector<int>> b = rebra_v_tablicu(m,rebrab);
     vector<vector<int>> c = otseivanie_teoremoj_vieta(a,b);
     switch(c[0][0]){
     case -6:

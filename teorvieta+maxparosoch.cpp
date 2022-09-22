@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-
+#include "maxparosoch.cpp"
 using namespace std;
 
 template<typename T> void vyvesti_vector(vector<T> a){
@@ -183,6 +183,24 @@ vector<vector<int>> rebra_v_tablicu (int kol_vo_ver, vector<vector<int>> rebra){
     }
     return otvet;
 }
+bool ravny (vector<vector<int>> a, vector<vector<int>> b){
+    for(int i = 0; i < a.size(); ++i){
+        for(int j = 0; j < a[0].size(); ++j){
+            if(a[i][j] != b[i][j]) return false;
+        }
+    }
+    return true;
+}
+bool podstavit (vector<int> parosochetanie, vector<vector<int>> a, vector<vector<int>> b){
+    //parosochetanie[i] = j <=> i ver iz a sopostavlena j ver iz b
+    vector<vector<int>> c (b.size());
+    for(int i = 0; i < b.size(); ++i){
+        c[i] = b[parosochetanie[i]];
+    }
+    return ravny(a,c);
+}
+
+
 signed main()
 {
     int n,m;
@@ -192,11 +210,17 @@ signed main()
     vector<vector<int>> rebraa(k1, vector<int>(3));
     for(int i = 0; i < k1; ++i){
         cin >> rebraa[i][0] >> rebraa[i][1] >> rebraa[i][2];
+        rebraa[i][0]--;
+        rebraa[i][1]--;
     }
+    cout << endl;
     vector<vector<int>> rebrab(k2, vector<int>(3));
     for(int i = 0; i < k2; ++i){
         cin >> rebrab[i][0] >> rebrab[i][1] >> rebrab[i][2];
+        rebrab[i][0]--;
+        rebrab[i][1]--;
     }
+    cout << endl;
     vector<vector<int>> a = rebra_v_tablicu(n,rebraa);
     vector<vector<int>> b = rebra_v_tablicu(m,rebrab);
     vector<vector<int>> c = otseivanie_teoremoj_vieta(a,b);
@@ -217,8 +241,6 @@ signed main()
         cout << "Code -2: multiples are not equal";
         return 0;
     default:
-        for(int i = 0; i < c.size(); ++i){
-            vyvesti_vector(c[i]);
-        }
+        vyvesti_vector(max_parosochetanie(c,n));
     }
 }
